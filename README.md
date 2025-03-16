@@ -28,7 +28,7 @@ Uma aplicação web para registro de atendimentos técnicos da Proxxima Telecom,
 
 ## 💻 Deploy:
 
-- [Adicione aqui o link para o deploy do seu projeto, caso ele esteja online]
+- []
 
 <h2 id="layout">🔖 Layout:</h2> 
 
@@ -58,6 +58,7 @@ Você pode visualizar a paleta de cores do projeto através [DESSE LINK](https:/
 ### Tópicos abordados durante o projeto:
 
 *   **JavaScript:**
+
     *   Manipulação do DOM para obter e definir valores de elementos HTML.
     *   Criação de funções para modularizar o código e facilitar a manutenção.
     *   Utilização de condicionais para controlar o fluxo da aplicação.
@@ -66,18 +67,17 @@ Você pode visualizar a paleta de cores do projeto através [DESSE LINK](https:/
     *   Tratamento de eventos para responder às ações do usuário (cliques, mudanças, etc.).
     *   Responsividade da página.
 *   **HTML5:**
+
     *   Criação de um formulário com diferentes tipos de campos (text, select, textarea, radio).
     *   Utilização de atributos para melhorar a acessibilidade (aria-label, aria-describedby).
     *   Estruturação do código HTML com elementos semânticos (<header>, <nav>, <main>, <aside>, <footer>, <section>, etc.).
 *   **CSS3:**
+
     *   Utilização de variáveis CSS para personalizar as cores e outros estilos.
     *   Criação de um layout responsivo com Flexbox e Grid Layout.
     *   Utilização de media queries para adaptar o layout a diferentes tamanhos de tela.
     *   Estilização de formulários com foco na usabilidade e na acessibilidade.
 
-### Badge de conclusão do projeto: 
-
-[Adicione aqui o link para o badge do projeto]
 
 ### Minhas redes e contato: 
 
