@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -244,4 +245,252 @@
     <script src="./assets/js/script.js"></script>
 </body>
 
+=======
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Atendimento - Proxxima Telecom</title>
+    <meta name="description"
+        content="Formulário para registro de atendimentos técnicos da Proxxima Telecom, facilitando a comunicação entre técnicos e backoffice.">
+    <link rel="icon" type="image/png" href="https://proxxima.net/storage/app/media/xx.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="preload" href="./assets/css/style.css" as="style">
+</head>
+
+<body>
+    <div class="container app-container">
+        <header class="app-header">
+            <div class="app-header__logo">
+                <img src="./assets/img/xx.ico" alt="Logo Proxxima Telecom">
+            </div>
+            <h1 class="app-header__title">
+                Registro de Atendimento - Proxxima Telecom
+            </h1>
+            <p class="app-header__subtitle">
+                Preencha os dados abaixo para gerar o resumo e facilitar a comunicação com o time backoffice.
+            </p>
+        </header>
+
+        <main class="app-main">
+            <form id="formAtendimento" class="form" aria-label="Formulário de Registro de Atendimento">
+
+                <section class="form__section">
+                    <h2 class="form__section-title">
+                        Informações do Cliente
+                    </h2>
+
+                    <div class="form-group">
+                        <label for="protocolo">
+                            Protocolo:
+                        </label>
+                        <input type="text" id="protocolo" class="form-control" placeholder="Número do protocolo"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pppoe">
+                            PPPoE:
+                        </label>
+                        <input type="text" id="pppoe" class="form-control" placeholder="Usuário PPPoE" required>
+                    </div>
+                </section>
+
+                <section class="form__section">
+                    <h2 class="form__section-title">
+                        INFO. EQUIPAMENTOS
+                    </h2>
+                    <div class="form-group">
+                        <label for="serialOnu">
+                            Serial ONU:
+                        </label>
+                        <input type="text" id="serialOnu" class="form-control" placeholder="Serial da ONU" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tipoEquipamento">Modo operacional da ONU:</label>
+                        <select class="form-control" id="tipoEquipamento" required
+                            aria-describedby="tipoEquipamentoHelp">
+                            <option value="">Selecione...</option>
+                            <option value="Router">Router</option>
+                            <option value="Bridge">Bridge</option>
+                            <option value="AC">AC</option>
+                        </select>
+                        <small id="tipoEquipamentoHelp" class="form-text text-muted">Selecione o modo de operação da
+                            ONU.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="marcaONU">Marca da ONU:</label>
+                        <select class="form-control" id="marcaONU" required>
+                            <option value="">Selecione...</option>
+                            <option value="Nokia">Nokia</option>
+                            <option value="Huawei">Huawei</option>
+                            <option value="Fiberhome">Fiberhome</option>
+                        </select>
+                    </div>
+
+                    <!-- Campo VLAN (Opcional) -->
+                    <div class="form-group">
+                        <label for="vlan">VLAN (Opcional):</label>
+                        <input type="text" id="vlan" class="form-control" placeholder="Número da VLAN">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="olt">
+                            OLT:
+                        </label>
+                        <input type="text" id="olt" class="form-control" placeholder="Nome da OLT" required>
+                    </div>
+                </section>
+
+
+                <section class="form__section">
+                    <h2 class="form__section-title">
+                        Tipo de Atendimento
+                    </h2>
+
+                    <div class="form-check">
+                        <input type="radio" id="instalacao" name="tipoServico" value="Instalação"
+                            class="form-check-input" required>
+                        <label class="form-check-label" for="instalacao">
+                            Instalação
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="radio" id="manutencao" name="tipoServico" value="Manutenção"
+                            class="form-check-input">
+                        <label class="form-check-label" for="manutencao">
+                            Manutenção
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="radio" id="reparo" name="tipoServico" value="Reparo" class="form-check-input">
+                        <label class="form-check-label" for="reparo">
+                            Reparo
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="radio" id="trocaEndereco" name="tipoServico" value="Troca de Endereço"
+                            class="form-check-input">
+                        <label class="form-check-label" for="trocaEndereco">
+                            Troca de Endereço
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="radio" id="verificarCto" name="tipoServico" value="Verificar CTO"
+                            class="form-check-input">
+                        <label class="form-check-label" for="verificarCto">
+                            Verificar CTO
+                        </label>
+                    </div>
+
+                    <!-- Campo de Quantidade de Portas (Oculto Inicialmente) -->
+                    <div class="form-group" id="quantidadePortasCtoContainer" style="display: none;">
+                        <label for="quantidadePortasCto">Quantidade de Portas da CTO:</label>
+                        <select class="form-control" id="quantidadePortasCto">
+                            <option value="">Selecione...</option>
+                            <option value="2">2</option>
+                            <option value="4">4</option>
+                            <option value="6">6</option>
+                            <option value="8">8</option>
+                            <option value="16">16</option>
+                            <option value="32">32</option>
+                        </select>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="radio" id="verificarConexao" name="tipoServico" value="Verificar Conexão"
+                            class="form-check-input">
+                        <label class="form-check-label" for="verificarConexao">
+                            Verificar Conexão do Cliente
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="radio" id="outro" name="tipoServico" value="Outro" class="form-check-input">
+                        <label class="form-check-label" for="outro">
+                            Outro:
+                        </label>
+                        <input type="text" id="outroTipoServico" class="form-control"
+                            placeholder="Descreva o tipo de serviço" disabled>
+                    </div>
+
+                </section>
+
+                <section class="form__section">
+                    <h2 class="form__section-title">
+                        Detalhes da Ação
+                    </h2>
+
+                    <div class="form-group">
+                        <label for="descricaoServico">Descrição detalhada:</label>
+                        <textarea id="descricaoServico" class="form-control" rows="4"
+                            placeholder="Exemplo: Apenas desprovisionamento" required></textarea>
+                    </div>
+                </section>
+
+                <section class="form__section">
+                    <h2 class="form__section-title">
+                        Informações Extras
+                    </h2>
+                    <div class="form-group">
+                        <label for="tentouPeloAniel">Tentou pelo ANIEL?</label>
+                        <select class="form-control" id="tentouPeloAniel" required
+                            aria-describedby="tentouPeloAnielHelp">
+                            <option value="">Selecione...</option>
+                            <option value="Sim">Sim</option>
+                            <option value="Não">Não</option>
+                        </select>
+                        <small id="tentouPeloAnielHelp" class="form-text text-muted">Informe se a tentativa de solução
+                            foi realizada através do ANIEL.</small>
+                    </div>
+                    <p class="form__observacao">
+                        Em caso de provisionamento de instalação backoffice irá lhe orientar para que seja executado os
+                        procedimentos através do APP do aniel, em caso de erro, será solicitado o print para correção do
+                        mesmo
+                    </p>
+                </section>
+
+                <!-- Container para os botões -->
+                <div class="form__buttons-container">
+                    <button type="button" id="gerarCopiarResumo" class="btn form__submit-button">
+                        Gerar Resumo e Copiar
+                    </button>
+                    <a href="https://cliq.zoho.com/" target="_blank" class="btn form__cliq-button">
+                        Ir para o Zoho Cliq
+                    </a>
+                </div>
+            </form>
+        </main>
+
+        <aside class="app-aside">
+            <h2 class="app-aside__title">
+                Relatório do Atendimento
+            </h2>
+            <div class="app-aside__content">
+                <pre id="resumoTexto" class="app-aside__text" aria-live="polite"></pre>
+            </div>
+        </aside>
+
+        <footer class="app-footer">
+            <p>© 2024 Gabriel A. Souza - Backoffice Redes. Todos os direitos reservados.</p>
+        </footer>
+
+    </div>
+
+    <script src="./assets/js/script.js"></script>
+</body>
+
+>>>>>>> 7b6a077f7253fae8e477c9594aa9b62bf3859a1f
 </html>
