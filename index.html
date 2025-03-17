@@ -72,7 +72,7 @@
                             <option value="">Selecione...</option>
                             <option value="Router">Router</option>
                             <option value="Bridge">Bridge</option>
-                            <option value="AC">AC</option>
+                            <option value="AC/WI-FI">AC/WI-FI</option>
                         </select>
                         <small id="tipoEquipamentoHelp" class="form-text text-muted">Selecione o modo de operação da
                             ONU.</small>
@@ -85,6 +85,7 @@
                             <option value="Nokia">Nokia</option>
                             <option value="Huawei">Huawei</option>
                             <option value="Fiberhome">Fiberhome</option>
+                            <option value="Intelras">Intelbras</option>
                         </select>
                     </div>
 
@@ -136,6 +137,21 @@
                             class="form-check-input">
                         <label class="form-check-label" for="trocaEndereco">
                             Troca de Endereço
+                        </label>
+                    </div>
+                     <div class="form-check">
+                        <input type="radio" id="desprovisionamento" name="tipoServico" value="Apenas Desprovisionamento"
+                            class="form-check-input">
+                        <label class="form-check-label" for="desprovisionamento">
+                            Apenas Desprovisionamento
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="radio" id="provisionamento" name="tipoServico" value="Apenas Provisionamento"
+                            class="form-check-input">
+                        <label class="form-check-label" for="provisionamento">
+                            Apenas Provisionamento
                         </label>
                     </div>
 
