@@ -181,7 +181,7 @@
                         <input type="radio" id="verificarConexao" name="tipoServico" value="Verificar Conexão"
                             class="form-check-input">
                         <label class="form-check-label" for="verificarConexao">
-                            Verificar Conexão do Cliente
+                            Analisar Conexão do Cliente
                         </label>
                     </div>
 
@@ -198,11 +198,11 @@
 
                 <section class="form__section">
                     <h2 class="form__section-title">
-                        Detalhes da Ação
+                        Descrição detalhada
                     </h2>
 
                     <div class="form-group">
-                        <label for="descricaoServico">Descrição detalhada:</label>
+                        <label for="descricaoServico">Descreva informações complementares que possam ajudar no atendimento (opcional). </label>
                         <textarea id="descricaoServico" class="form-control" rows="4"
                             placeholder="Exemplo: Apenas desprovisionamento" required></textarea>
                     </div>
@@ -210,7 +210,7 @@
 
                 <section class="form__section">
                     <h2 class="form__section-title">
-                        Informações Extras
+                        Procedimento no ANIEL
                     </h2>
                     <div class="form-group">
                         <label for="tentouPeloAniel">Tentou pelo ANIEL?</label>
@@ -220,15 +220,13 @@
                             <option value="Sim">Sim</option>
                             <option value="Não">Não</option>
                         </select>
-                        <small id="tentouPeloAnielHelp" class="form-text text-muted">Informe se a tentativa de solução
-                            foi realizada através do ANIEL.</small>
+                        <small id="tentouPeloAnielHelp" class="form-text text-muted">Informe se o procedimento padrão foi realizado através do ANIEL.</small>
                     </div>
                     <p class="form__observacao">
-                        Em caso de provisionamento de instalação backoffice irá lhe orientar para que seja executado os
-                        procedimentos através do APP do aniel, em caso de erro, será solicitado o print para correção do
-                        mesmo
+                        Em caso de provisionamento ou desprovisionamento e ocorrer algum erro pelo ANIEL, o time do N2 irá lhe auxiliar para realizar o processo. Será necessário que envie um print da tela/código do erro para que o time interno possa atuar no problema.
                     </p>
                 </section>
+                
 
                 <!-- Container para os botões -->
                 <div class="form__buttons-container">

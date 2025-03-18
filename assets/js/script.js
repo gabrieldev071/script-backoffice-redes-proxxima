@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const marcaONUSelect = document.getElementById('marcaONU');
     const tentouPeloAnielSelect = document.getElementById('tentouPeloAniel');
     const quantidadePortasCtoContainer = document.getElementById('quantidadePortasCtoContainer');
-    const quantidadePortasCtoSelect = document.getElementById('quantidadePortasCtoSelect');
+    const quantidadePortasCtoSelect = document.getElementById('quantidadePortasCto');
     const verificarCtoRadio = document.getElementById('verificarCto');
     const appAside = document.querySelector('.app-aside');
     const vlanInput = document.getElementById('vlan');
@@ -16,16 +16,18 @@ document.addEventListener('DOMContentLoaded', function () {
     // === 2. Funções Auxiliares ===
 
     function getTipoServico() {
+        let tipoServico = '';
         const tipoServicoRadios = document.querySelectorAll('input[name="tipoServico"]');
         for (const radio of tipoServicoRadios) {
             if (radio.checked) {
+                tipoServico = radio.value;
                 if (radio.id === 'outro') {
                     return outroTipoServicoInput.value;
                 }
                 return radio.value;
             }
         }
-        return '';
+        return tipoServico;
     }
 
     function gerarTextoResumo() {
@@ -40,32 +42,35 @@ document.addEventListener('DOMContentLoaded', function () {
         const descricaoServico = document.getElementById('descricaoServico').value;
         const tentouPeloAniel = tentouPeloAnielSelect.value;
         let quantidadePortasCto = '';
-
-        if (verificarCtoRadio.checked) {
+        
+        // Adicione esta verificação para garantir que a quantidade de portas seja adicionada apenas se o rádio "Verificar CTO" estiver marcado
+        if (verificarCtoRadio.checked && tipoServico === 'Verificar CTO') {
             quantidadePortasCto = quantidadePortasCtoSelect.value;
             tipoServico += ` (Portas: ${quantidadePortasCto || 'Não informado'})`;
         }
 
-        let textoResumo = `*INFORMAÇÕES DO CLIENTE:*
+        let textoResumo = `
+    *Informações do Cliente:*
 
-Protocolo: ${protocolo || 'Não informado'}
-PPPoE: ${pppoe || 'Não informado'}
+    Protocolo: ${protocolo || 'Não informado'}
+    PPPoE: ${pppoe || 'Não informado'}
 
-*INFORMAÇÕES DO EQUIPAMENTO:*
+    *Informações do Equipamento:*
 
-Serial ONU: ${serialOnu || 'Não informado'}
-Modo OP: ${tipoEquipamento || 'Não informado'}
-Marca ONU: ${marcaONU || 'Não informado'}
-VLAN: ${vlan || 'Não informado'}
-OLT: ${olt || 'Não informado'}
+    Serial ONU: ${serialOnu || 'Não informado'}
+    Modo OP: ${tipoEquipamento || 'Não informado'}
+    Marca ONU: ${marcaONU || 'Não informado'}
+    VLAN: ${vlan || 'Não informado'}
+    OLT: ${olt || 'Não informado'}
 
-*TIPO DE ATENDIMENTO:* ${tipoServico || 'Não informado'}
+    *Tipo de Atendimento:* ${tipoServico || 'Não informado'}
 
-*DESCRIÇÃO DO SERVIÇO:* ${descricaoServico || 'Não informado'}
+    *Descrição Detalhada:* ${descricaoServico || 'Não informado'}
 
-*INFORMAÇÕES EXTRAS:*
+    *Procedimentos Aniel:*
 
-Tentou pelo ANIEL: ${tentouPeloAniel || 'Não informado'}`;
+    Tentou pelo ANIEL: ${tentouPeloAniel || 'Não informado'}
+    `;
 
         return textoResumo;
     }
