@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Atendimento - Proxxima Telecom</title>
+    <title>RELATÓRIO N2 - BACCKOFFICE REDES - Proxxima Telecom</title>
     <meta name="description"
         content="Formulário para registro de atendimentos técnicos da Proxxima Telecom, facilitando a comunicação entre técnicos e backoffice.">
     <link rel="icon" type="image/png" href="https://proxxima.net/storage/app/media/xx.ico">
@@ -62,7 +62,12 @@
                         <label for="serialOnu">
                             Serial ONU:
                         </label>
-                        <input type="text" id="serialOnu" class="form-control" placeholder="Serial da ONU" required>
+                        <input type="text" id="serialOnu" class="form-control" placeholder="Serial da ONU" required
+                            aria-describedby="serialOnuHelp">
+  <!--                            <small id="serialOnuHelp" class="form-text text-muted">
+                                 Padrões: Huawei = 48575443 + 8 últimos dígitos | Nokia = 414C434C + 8 últimos dígitos | Fiberhome =
+                                 46485454 + 8 últimos dígitos
+                             </small> -->
                     </div>
 
                     <div class="form-group">
@@ -97,7 +102,7 @@
 
                     <div class="form-group">
                         <label for="olt">
-                            OLT:
+                            Ponto de Acesso - OLT:
                         </label>
                         <input type="text" id="olt" class="form-control" placeholder="Nome da OLT" required>
                     </div>
@@ -159,7 +164,7 @@
                         <input type="radio" id="verificarCto" name="tipoServico" value="Verificar CTO"
                             class="form-check-input">
                         <label class="form-check-label" for="verificarCto">
-                            Verificação de CTO
+                            Verificar CTO
                         </label>
                     </div>
 
@@ -202,7 +207,8 @@
                     </h2>
 
                     <div class="form-group">
-                        <label for="descricaoServico">Descreva informações complementares que possam ajudar no atendimento (opcional). </label>
+                        <label for="descricaoServico">Descreva informações complementares que possam ajudar no
+                            atendimento (opcional). </label>
                         <textarea id="descricaoServico" class="form-control" rows="4"
                             placeholder="Exemplo: Sinal -19" required></textarea>
                     </div>
@@ -220,13 +226,16 @@
                             <option value="Sim">Sim</option>
                             <option value="Não">Não</option>
                         </select>
-                        <small id="tentouPeloAnielHelp" class="form-text text-muted">Informe se o procedimento padrão foi realizado através do ANIEL.</small>
+                        <small id="tentouPeloAnielHelp" class="form-text text-muted">Informe se o procedimento padrão
+                            foi realizado através do ANIEL.</small>
                     </div>
                     <p class="form__observacao">
-                        Em caso de provisionamento ou desprovisionamento e ocorrer algum erro pelo ANIEL, o time do N2 irá lhe auxiliar para realizar o processo. Será necessário que envie um print da tela/código do erro para que o time interno possa atuar no problema.
+                        Em caso de provisionamento ou desprovisionamento e ocorrer algum erro pelo ANIEL, o time do N2
+                        irá lhe auxiliar para realizar o processo. Será necessário que envie um print da tela/código do
+                        erro para que o time interno possa atuar no problema.
                     </p>
                 </section>
-                
+
 
                 <!-- Container para os botões -->
                 <div class="form__buttons-container">
@@ -251,6 +260,9 @@
 
         <footer class="app-footer">
             <p>© 2024 Gabriel A. Souza - Backoffice Redes. Todos os direitos reservados.</p>
+            <a href="https://github.com/gabrieldev071" target="_blank" class="app-footer__github-link">
+                <i class="fab fa-github"></i>
+            </a>
         </footer>
 
     </div>

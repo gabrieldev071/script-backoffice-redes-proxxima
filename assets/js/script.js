@@ -16,23 +16,19 @@ document.addEventListener('DOMContentLoaded', function () {
     // === 2. Funções Auxiliares ===
 
     function getTipoServico() {
-        // Obtém a lista de radio buttons para o tipo de serviço
         const tipoServicoRadios = document.querySelectorAll('input[name="tipoServico"]');
-
-        // Percorre os radio buttons
+        let tipoServico = '';
         for (const radio of tipoServicoRadios) {
-            // Se o radio estiver marcado
             if (radio.checked) {
-                // Se for o radio "Outro", retorna o valor do input de texto
+                tipoServico = radio.value;
+                console.log('Tipo de Serviço:', tipoServico);
                 if (radio.id === 'outro') {
                     return outroTipoServicoInput.value;
                 }
-                // Caso contrário, retorna o valor do radio
                 return radio.value;
             }
         }
-        // Se nenhum estiver marcado, retorna vazio
-        return '';
+        return tipoServico;
     }
 
     function gerarTextoResumo() {
@@ -47,11 +43,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const descricaoServico = document.getElementById('descricaoServico').value;
         const tentouPeloAniel = tentouPeloAnielSelect.value;
         let quantidadePortasCto = '';
-         if (verificarCtoRadio.checked) { // Verifica se o radio está marcado
-            quantidadePortasCto = quantidadePortasCtoSelect.value;
+
+        if (verificarCtoRadio.checked && tipoServico === 'Verificar CTO' && quantidadePortasCtoSelect) { // Verifica se o radio está marcado e se o elemento existe
+             quantidadePortasCto = quantidadePortasCtoSelect.value;
             tipoServico += ` (Portas: ${quantidadePortasCto || 'Não informado'})`;
         }
-
 
         let textoResumo = `
     *INFORMAÇÕES DO CLIENTE:*
@@ -65,13 +61,13 @@ document.addEventListener('DOMContentLoaded', function () {
     Modo OP: ${tipoEquipamento || 'Não informado'}
     Marca ONU: ${marcaONU || 'Não informado'}
     VLAN: ${vlan || 'Não informado'}
-    OLT: ${olt || 'Não informado'}
+    Ponto de Acesso: ${olt || 'Não informado'}
 
     *TIPO DE ATENDIMENTO:* ${tipoServico || 'Não informado'}
 
     *DESCRIÇÃO DETALHADA:* ${descricaoServico || 'Não informado'}
 
-    Tentou pelo ANIEL: ${tentouPeloAniel || 'Não informado'}
+    *TENTOU PELO ANIEL*: ${tentouPeloAniel || 'Não informado'}
     `;
 
         return textoResumo;
@@ -97,16 +93,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function atualizarVisibilidadeQuantidadeCto() {
-        if (verificarCtoRadio.checked) {
-            quantidadePortasCtoContainer.style.display = 'block';
-        } else {
-            quantidadePortasCtoContainer.style.display = 'none';
-            quantidadePortasCtoSelect.value = '';
+     //   console.log('Função atualizarVisibilidadeQuantidadeCto() chamada'); // Para Debug
+        if (quantidadePortasCtoContainer) { // Verifica se o container existe
+            quantidadePortasCtoContainer.style.display = verificarCtoRadio.checked ? 'block' : 'none';
+            if (!verificarCtoRadio.checked && quantidadePortasCtoSelect) { // Verifica se o select existe antes de limpar
+                quantidadePortasCtoSelect.value = '';
+            }
         }
     }
 
     botaoGerarCopiar.addEventListener('click', function () {
+      //  console.log('Botão Gerar Resumo e Copiar clicado'); // Para Debug
         const textoResumoGerado = gerarTextoResumo();
+      //  console.log('Resumo gerado:', textoResumoGerado); // Para Debug
         resumoTexto.textContent = textoResumoGerado;
         copiarParaAreaTransferencia(textoResumoGerado);
         appAside.style.display = 'block';

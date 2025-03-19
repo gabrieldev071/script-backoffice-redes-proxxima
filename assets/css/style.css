@@ -290,6 +290,17 @@ textarea.form-control {
     width: 100%;
 }
 
+.app-footer__github-link {
+    color: #fff; /* Cor do ícone */
+    text-decoration: none; /* Remove o sublinhado */
+    margin-left: 5px; /* Adiciona um pequeno espaço à esquerda do ícone */
+    transition: color 0.3s ease; /* Adiciona uma transição suave na cor */
+}
+
+.app-footer__github-link:hover {
+    color: var(--secondary-color); /* Altera a cor ao passar o mouse */
+}
+
 /* Media Queries para Responsividade */
 @media (min-width: 768px) {
     .app-container {
