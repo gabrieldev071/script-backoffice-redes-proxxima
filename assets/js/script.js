@@ -52,22 +52,22 @@ document.addEventListener('DOMContentLoaded', function () {
         let textoResumo = `
     *INFORMAÇÕES DO CLIENTE:*
 
-    Protocolo: ${protocolo || 'Não informado'}
-    PPPoE: ${pppoe || 'Não informado'}
+    Protocolo: ${protocolo || ''}
+    PPPoE: ${pppoe || ''}
 
     *INFORMAÇÃO DO EQUIPAMENTO:*
 
-    Serial ONU: ${serialOnu || 'Não informado'}
-    Modo OP: ${tipoEquipamento || 'Não informado'}
-    Marca ONU: ${marcaONU || 'Não informado'}
-    VLAN: ${vlan || 'Não informado'}
-    Ponto de Acesso: ${olt || 'Não informado'}
+    Serial ONU: ${serialOnu || ''}
+    Modo OP: ${tipoEquipamento || ''}
+    Marca ONU: ${marcaONU || ''}
+    VLAN: ${vlan || ''}
+    Ponto de Acesso: ${olt || ''}
 
-    *TIPO DE ATENDIMENTO:* ${tipoServico || 'Não informado'}
+    *TIPO DE ATENDIMENTO:* ${tipoServico || ''}
 
-    *DESCRIÇÃO DETALHADA:* ${descricaoServico || 'Não informado'}
+    *DESCRIÇÃO DETALHADA:* ${descricaoServico || ''}
 
-    *TENTOU PELO ANIEL*: ${tentouPeloAniel || 'Não informado'}
+    *TENTOU PELO ANIEL*: ${tentouPeloAniel || ''}
     `;
 
         return textoResumo;
