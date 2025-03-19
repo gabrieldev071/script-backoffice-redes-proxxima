@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
         for (const radio of tipoServicoRadios) {
             if (radio.checked) {
                 tipoServico = radio.value;
-                console.log('Tipo de Serviço:', tipoServico);
+            //    console.log('Tipo de Serviço:', tipoServico);
                 if (radio.id === 'outro') {
                     return outroTipoServicoInput.value;
                 }
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
     Protocolo: ${protocolo || ''}
     PPPoE: ${pppoe || ''}
 
-    *INFORMAÇÃO DO EQUIPAMENTO:*
+    *INFORMAÇÕES DO EQUIPAMENTO:*
 
     Serial ONU: ${serialOnu || ''}
     Modo OP: ${tipoEquipamento || ''}
