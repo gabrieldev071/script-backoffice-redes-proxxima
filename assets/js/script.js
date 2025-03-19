@@ -16,18 +16,23 @@ document.addEventListener('DOMContentLoaded', function () {
     // === 2. Funções Auxiliares ===
 
     function getTipoServico() {
-        let tipoServico = '';
+        // Obtém a lista de radio buttons para o tipo de serviço
         const tipoServicoRadios = document.querySelectorAll('input[name="tipoServico"]');
+
+        // Percorre os radio buttons
         for (const radio of tipoServicoRadios) {
+            // Se o radio estiver marcado
             if (radio.checked) {
-                tipoServico = radio.value;
+                // Se for o radio "Outro", retorna o valor do input de texto
                 if (radio.id === 'outro') {
                     return outroTipoServicoInput.value;
                 }
+                // Caso contrário, retorna o valor do radio
                 return radio.value;
             }
         }
-        return tipoServico;
+        // Se nenhum estiver marcado, retorna vazio
+        return '';
     }
 
     function gerarTextoResumo() {
@@ -42,20 +47,19 @@ document.addEventListener('DOMContentLoaded', function () {
         const descricaoServico = document.getElementById('descricaoServico').value;
         const tentouPeloAniel = tentouPeloAnielSelect.value;
         let quantidadePortasCto = '';
-        
-        // Adicione esta verificação para garantir que a quantidade de portas seja adicionada apenas se o rádio "Verificar CTO" estiver marcado
-        if (verificarCtoRadio.checked && tipoServico === 'Verificar CTO') {
+         if (verificarCtoRadio.checked) { // Verifica se o radio está marcado
             quantidadePortasCto = quantidadePortasCtoSelect.value;
             tipoServico += ` (Portas: ${quantidadePortasCto || 'Não informado'})`;
         }
 
+
         let textoResumo = `
-    *Informações do Cliente:*
+    *INFORMAÇÕES DO CLIENTE:*
 
     Protocolo: ${protocolo || 'Não informado'}
     PPPoE: ${pppoe || 'Não informado'}
 
-    *Informações do Equipamento:*
+    *INFORMAÇÃO DO EQUIPAMENTO:*
 
     Serial ONU: ${serialOnu || 'Não informado'}
     Modo OP: ${tipoEquipamento || 'Não informado'}
@@ -63,11 +67,9 @@ document.addEventListener('DOMContentLoaded', function () {
     VLAN: ${vlan || 'Não informado'}
     OLT: ${olt || 'Não informado'}
 
-    *Tipo de Atendimento:* ${tipoServico || 'Não informado'}
+    *TIPO DE ATENDIMENTO:* ${tipoServico || 'Não informado'}
 
-    *Descrição Detalhada:* ${descricaoServico || 'Não informado'}
-
-    *Procedimentos Aniel:*
+    *DESCRIÇÃO DETALHADA:* ${descricaoServico || 'Não informado'}
 
     Tentou pelo ANIEL: ${tentouPeloAniel || 'Não informado'}
     `;
