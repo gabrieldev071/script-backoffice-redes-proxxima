@@ -32,7 +32,7 @@ body {
 }
 
 .app-container {
-    max-width: 600px;
+    max-width: 650px;
     margin: 20px auto;
     background-color: #fff;
     border-radius: 15px;
@@ -54,7 +54,6 @@ body {
     flex-direction: column;
     align-items: center;
     border-radius: 15px 15px 0 0;
-    /* Adicionando a imagem de fundo */
     background-image: url("https://proxxima.net/themes/milha-telecom/assets/img/bgs/people-working.jpg");
     background-size: cover; /* Ajusta a imagem para cobrir todo o cabeçalho */
     background-position: center; /* Centraliza a imagem */
@@ -74,10 +73,9 @@ body {
     z-index: 1; /* Garante que a sobreposição fique acima da imagem */
 }
 
-/* Ajustando a ordem dos elementos */
 .app-header>* {
     position: relative;
-    z-index: 2; /* Garante que o conteúdo fique acima da sobreposição */
+    z-index: 2; 
 }
 
 .app-header__logo {
@@ -92,7 +90,8 @@ body {
 }
 
 .app-header__title {
-    font-size: 1.5em;
+    font-size: 1.4em;
+    text-transform: uppercase;
     margin-bottom: 5px;
     font-weight: bold;
 }
@@ -171,11 +170,11 @@ textarea.form-control {
 
 /* Container para os botões */
 .form__buttons-container {
-    width: 100%; /* Ocupa toda a largura disponível */
+    width: 100%; 
     display: flex;
-    flex-direction: column; /* Alinha os botões verticalmente */
-    align-items: center; /* Centraliza os botões horizontalmente */
-    margin-top: 20px; /* Adiciona um espaçamento acima dos botões */
+    flex-direction: column; 
+    align-items: center; 
+    margin-top: 20px; 
 }
 
 .form__submit-button {
@@ -234,7 +233,7 @@ textarea.form-control {
 .form__observacao {
     font-size: 0.8em;
     font-style: italic;
-    color: var(--secondary-color);
+    color: var(--primary-color);
     margin-top: 3px;
 }
 
@@ -291,9 +290,9 @@ textarea.form-control {
 }
 
 .app-footer__github-link {
-    color: #fff; /* Cor do ícone */
-    text-decoration: none; /* Remove o sublinhado */
-    margin-left: 5px; /* Adiciona um pequeno espaço à esquerda do ícone */
+    color: #fff; 
+    text-decoration: none; 
+    margin-left: 5px;
     transition: color 0.3s ease; /* Adiciona uma transição suave na cor */
 }
 
@@ -304,7 +303,7 @@ textarea.form-control {
 /* Media Queries para Responsividade */
 @media (min-width: 768px) {
     .app-container {
-        max-width: 600px;
+        max-width: 650px;
     }
 
     .app-header {
