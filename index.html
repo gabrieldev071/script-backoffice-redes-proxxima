@@ -26,7 +26,7 @@
                 Registro de Atendimento - Proxxima Telecom
             </h1>
             <p class="app-header__subtitle">
-                Preencha os dados abaixo para gerar o resumo e facilitar a comunicação com o time backoffice.
+                Preencha os dados abaixo para gerar o resumo e facilitar a comunicação com o time do N2.
             </p>
         </header>
 
@@ -64,14 +64,14 @@
                         </label>
                         <input type="text" id="serialOnu" class="form-control" placeholder="Serial da ONU" required
                             aria-describedby="serialOnuHelp">
-  <!--                            <small id="serialOnuHelp" class="form-text text-muted">
+                        <!--                            <small id="serialOnuHelp" class="form-text text-muted">
                                  Padrões: Huawei = 48575443 + 8 últimos dígitos | Nokia = 414C434C + 8 últimos dígitos | Fiberhome =
                                  46485454 + 8 últimos dígitos
                              </small> -->
                     </div>
 
                     <div class="form-group">
-                        <label for="tipoEquipamento">Modo operacional da ONU:</label>
+                        <label for="tipoEquipamento">Modo operacional da ONU: (Opcional):</label>
                         <select class="form-control" id="tipoEquipamento" required
                             aria-describedby="tipoEquipamentoHelp">
                             <option value="">Selecione...</option>
@@ -91,6 +91,7 @@
                             <option value="Huawei">Huawei</option>
                             <option value="Fiberhome">Fiberhome</option>
                             <option value="Intelras">Intelbras</option>
+                            <option value="ZTE">ZTE</option>
                         </select>
                     </div>
 
@@ -115,10 +116,10 @@
                     </h2>
 
                     <div class="form-check">
-                        <input type="radio" id="instalacao" name="tipoServico" value="Instalação"
+                        <input type="radio" id="instalacao" name="tipoServico" value="Instalação/Ativação"
                             class="form-check-input" required>
                         <label class="form-check-label" for="instalacao">
-                            Instalação
+                            Instalação/Ativação
                         </label>
                     </div>
 
@@ -138,25 +139,10 @@
                     </div>
 
                     <div class="form-check">
-                        <input type="radio" id="trocaEndereco" name="tipoServico" value="Troca de Endereço"
+                        <input type="radio" id="trocaEndereco" name="tipoServico" value="Troca de Endereço - Desprovisionar e Provisionar"
                             class="form-check-input">
                         <label class="form-check-label" for="trocaEndereco">
-                            Troca de endereço
-                        </label>
-                    </div>
-                     <div class="form-check">
-                        <input type="radio" id="desprovisionamento" name="tipoServico" value="Apenas Desprovisionamento"
-                            class="form-check-input">
-                        <label class="form-check-label" for="desprovisionamento">
-                            Apenas desprovisionamento
-                        </label>
-                    </div>
-
-                    <div class="form-check">
-                        <input type="radio" id="provisionamento" name="tipoServico" value="Apenas Provisionamento"
-                            class="form-check-input">
-                        <label class="form-check-label" for="provisionamento">
-                            Apenas provisionamento
+                            Troca de Endereço - Desprovisionar e Provisionar
                         </label>
                     </div>
 
@@ -181,12 +167,29 @@
                             <option value="32">32</option>
                         </select>
                     </div>
+                    <div class="form-check">
+                        <input type="radio" id="desprovisionamentoProvisionamento" name="tipoServico"
+                            value="Desprovisionar e Provisionar" class="form-check-input">
+                        <label class="form-check-label" for="desprovisionamentoProvisionamento">
+                            Desprovisionar e Provisionar
+                        </label>
+                        <small id="tipoEquipamentoHelp" class="form-text text-muted">Detalhe a situação no campo "DESCRIÇÃO DETALHADA".</small>
+                    </div>
+
+                    
 
                     <div class="form-check">
-                        <input type="radio" id="verificarConexao" name="tipoServico" value="Verificar Conexão"
+                        <input type="radio" id="verificarConexao" name="tipoServico" value="Verificar Conexão do Cliente"
                             class="form-check-input">
                         <label class="form-check-label" for="verificarConexao">
-                            Verificar conexão do cliente
+                            Verificar Conexão do Cliente
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="radio" id="desprovisionar" name="tipoServico" value="Apenas Desprovisionar" class="form-check-input">
+                        <label class="form-check-label" for="desprovisionar">
+                            Apenas Desprovisionar
                         </label>
                     </div>
 
@@ -198,8 +201,8 @@
                         <input type="text" id="outroTipoServico" class="form-control"
                             placeholder="Descreva o tipo de serviço" disabled>
                     </div>
-
                 </section>
+
 
                 <section class="form__section">
                     <h2 class="form__section-title">
@@ -209,11 +212,10 @@
                     <div class="form-group">
                         <label for="descricaoServico">Descreva informações complementares que possam ajudar no
                             atendimento (opcional). </label>
-                        <textarea id="descricaoServico" class="form-control" rows="4"
-                            placeholder="Exemplo: Sinal -19" required></textarea>
+                        <textarea id="descricaoServico" class="form-control" rows="4" placeholder="Exemplos: WAN já configurada, sinal -19, apenas desprovisionamento..."
+                            required></textarea>
                     </div>
                 </section>
-
                 <section class="form__section">
                     <h2 class="form__section-title">
                         Procedimento no ANIEL
@@ -231,12 +233,23 @@
                     </div>
                     <p class="form__observacao">
                         Em caso de provisionamento ou desprovisionamento e ocorrer algum erro pelo ANIEL, o time do N2
-                        irá lhe auxiliar para realizar o processo. Será necessário que envie um print da tela/código do
-                        erro para que o time interno possa atuar no problema.
+                        irá lhe auxiliar
+                        para realizar o processo. <strong>Será necessário que envie um print da tela/código do erro para que o
+                        time interno
+                        possa atuar no problema.</strong>
                     </p>
                 </section>
-
-
+                <p class="form__observacao">
+                    Clique no botão <strong>"GERAR RESUMO E COPIAR"</strong> e em seguida abra o <strong>APP ZOHO CLIQ</strong> e cole o texto no campo de mensagens. 
+                   </p>
+                <aside class="app-aside">
+                    <h2 class="app-aside__title">
+                        Relatório de atendimento
+                    </h2>
+                    <div class="app-aside__content">
+                        <pre id="resumoTexto" class="app-aside__text" aria-live="polite"></pre>
+                    </div>
+                </aside>
                 <!-- Container para os botões -->
                 <div class="form__buttons-container">
                     <button type="button" id="gerarCopiarResumo" class="btn form__submit-button">
@@ -249,18 +262,9 @@
             </form>
         </main>
 
-        <aside class="app-aside">
-            <h2 class="app-aside__title">
-                Relatório do Atendimento
-            </h2>
-            <div class="app-aside__content">
-                <pre id="resumoTexto" class="app-aside__text" aria-live="polite"></pre>
-            </div>
-        </aside>
-
         <footer class="app-footer">
             <p>© 2024 Gabriel A. Souza - Backoffice Redes. Todos os direitos reservados.</p>
-            <a href="https://github.com/gabrieldev071" target="_blank" class="app-footer__github-link">
+            <a href="https://github.com/gabriel-souza-developer" target="_blank" class="app-footer__github-link">
                 <i class="fab fa-github"></i>
             </a>
         </footer>
